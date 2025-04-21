@@ -107,7 +107,7 @@ def deactivate():
     # Do not deactivate conda base environment.
     # TODO(se-jaeger): expose possibility to change this
     elif conda_environment_name and conda_environment_name != "base":
-        __return_command("conda deactivate")
+        __return_command("mamba deactivate")
 
 
 def link(environment_type, name_or_path):
@@ -301,7 +301,7 @@ def __handle_environment_file(type_, environment_path_file_or_name):
             if isfile(environment_path_file_or_name):
                 environment_path_file_or_name = __parse_conda_env_file_and_get_name(environment_path_file_or_name)
 
-            __return_command(f"conda activate {environment_path_file_or_name}")
+            __return_command(f"mamba activate {environment_path_file_or_name}")
             __print_activation_message(TYPE_TO_FILES)
 
     else:
